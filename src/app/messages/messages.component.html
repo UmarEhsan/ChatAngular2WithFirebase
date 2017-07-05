@@ -1,0 +1,25 @@
+<div class="row" >
+<!--<div class="col-md-2"></div>-->
+<div class="col-md-8 message-area" id="message">
+   <div *ngFor="let message of messages" class="row">
+    <div [ngClass]="{'pull-left': checkCurrentUser(message), 'pull-right': !checkCurrentUser(message)}">
+      <span >{{message.message}}</span>
+     <img *ngIf="!checkCurrentUser(message)" [src]="message.senderImage" class="circle">
+    </div>
+
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+      
+
+<div class="col-md-12">
+   <textarea #message class="form-control" rows="3" id="comment"></textarea>
+   <button class="" (click)="sendMessage(message)">Send</button>
+</div>
+ 
+
+</div>
+

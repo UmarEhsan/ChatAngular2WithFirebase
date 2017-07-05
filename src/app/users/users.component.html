@@ -1,0 +1,12 @@
+<!--<div *ngFor='let user of _users'  *ngIf="user.uid !== currentUser.uid ">
+    {{user.displayName}}
+    <img [src]="user.photoURL">
+</div>-->
+
+<div *ngFor="let user of _users" (click)="selectedUserForMessage.emit(user)">
+ 
+    <div *ngIf="user.$key !== currentUser.uid " class="row top-10 " > 
+      <span class="pull-left top-20">{{user.displayName}}</span>
+      <img [src]="user.photoURL" class="pull-right circle"> 
+    </div>
+</div>
