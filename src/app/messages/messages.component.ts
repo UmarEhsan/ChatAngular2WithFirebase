@@ -13,14 +13,12 @@ export class MessagesComponent implements OnInit {
 @Input() messages;
 
   constructor(private messageService : MessageServiceService) { 
-    this.scrollTop();
+    
   }
 
   ngOnInit() {
-    debugger
-    
-    
-  }
+    this.scrollTop();
+}
 sendMessage(message)
 {
   debugger
@@ -42,9 +40,8 @@ this.scrollTop();
 }
 scrollTop()
 {
-  debugger
-var box = document.getElementById('message');
-box.scrollTop = box.scrollHeight + box.offsetHeight;
+let box = document.getElementById('message');
+box.scrollTop = box.scrollHeight ;
 }
 checkCurrentUser(message)
 {

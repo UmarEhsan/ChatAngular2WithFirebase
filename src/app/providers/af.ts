@@ -1,14 +1,17 @@
 import {Injectable} from "@angular/core";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 import * as firebase from 'firebase/app';
 
 
 @Injectable()
 export class AF {
-  
-  constructor(public af: AngularFireAuth) {}
+  public users: FirebaseListObservable<any[]>;
+  constructor(public af: AngularFireAuth, db: AngularFireDatabase) {
+    this.users = db.list('users');
+  }
 
   
   /**
@@ -26,6 +29,12 @@ export class AF {
   }
 
   logout() {
+    this.af.authState.subscribe(_user => {
+    this.users.update(_user.uid, {is_active : false});
+  })
     this.af.auth.signOut();
+    console.log(this.af);
+    
+    
   }
 }

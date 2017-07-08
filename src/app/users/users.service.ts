@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database'
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Injectable()
 export class UsersService {
@@ -18,7 +18,8 @@ export class UsersService {
       email: user.email,
       timestamp: Date.now(),
       photoURL : user.photoURL,
-      providerId : user.providerData[0].uid
+      providerId : user.providerData[0].uid,
+      is_active  : true
     };
     this.users.update(user.uid , _user)
    

@@ -16,7 +16,10 @@ export class UsersComponent implements OnInit {
     this.currentUser = _user;
   })
 }
-
+isOfflineOrOnline(isActive)
+{
+  return isActive === "Online" || "Offline";
+}
 
 
   ngOnInit() {

@@ -1,6 +1,22 @@
 <div *ngFor="let user of _users" (click)="selectedUserForMessage.emit(user)">
-<div *ngIf="user.$key !== currentUser.uid " class="row top-10 " > 
-      <span class="pull-left top-20">{{user.displayName}}</span>
-      <img [src]="user.photoURL" class="pull-right circle"> 
+<div *ngIf="user.$key !== currentUser.uid " class="row top-10 row-bordered" > 
+      
+      <div class="row">
+
+      <div class="margin-left-20 col-md-12">
+          <span class="pull-left ">
+             <strong>{{isOfflineOrOnline(user.is_active)}}</strong>
+         </span>
+          <span class="pull-left online-circle" [ngClass]="{'red': user.is_active, 'white': !user.is_active}"></span>
+      </div>
+
+     <div class="col-md-12 margin-left-20">
+        <span class="pull-left top-20 ">{{user.displayName}}</span>
+        <img [src]="user.photoURL" class="pull-right circle"> 
+     </div>
+        
+
+      </div>
+      
     </div>
 </div>
