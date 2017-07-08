@@ -11,12 +11,15 @@ export class MessagesComponent implements OnInit {
 @Input() chatUser;
 @Input() currentUser;
 @Input() messages;
-  constructor(private messageService : MessageServiceService) { }
+
+  constructor(private messageService : MessageServiceService) { 
+    this.scrollTop();
+  }
 
   ngOnInit() {
     debugger
     
-    this.scrollTop();
+    
   }
 sendMessage(message)
 {
@@ -39,13 +42,13 @@ this.scrollTop();
 }
 scrollTop()
 {
-  
+  debugger
 var box = document.getElementById('message');
-box.scrollTop = box.scrollHeight;
+box.scrollTop = box.scrollHeight + box.offsetHeight;
 }
 checkCurrentUser(message)
 {
-  debugger
+  
   return message.senderId === this.currentUser.providerData[0].uid;
 
 }
