@@ -19,7 +19,8 @@ export class UsersService {
       timestamp: Date.now(),
       photoURL : user.photoURL,
       providerId : user.providerData[0].uid,
-      is_active  : true
+      is_active  : true,
+      last_seen  : new Date() 
     };
     this.users.update(user.uid , _user)
    

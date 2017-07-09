@@ -5,12 +5,17 @@
 
       <div class="margin-left-20 col-md-12">
           <span class="pull-left ">
-             <strong>{{isOfflineOrOnline(user.is_active)}}</strong>
-         </span>
+              
+             <strong>{{isOfflineOrOnline(user.is_active, "forOnlineAndOffline")}}</strong>
+          </span>
+
           <span class="pull-left online-circle" [ngClass]="{'red': user.is_active, 'white': !user.is_active}"></span>
+          <span class="pull-right " *ngIf="!isOfflineOrOnline(user.is_active)" >
+             Last Seen : <strong>{{user.last_seen | amTimeAgo}}</strong>
+          </span>
       </div>
 
-     <div class="col-md-12 margin-left-20">
+     <div class="col-md-12 margin-left-20" >
         <span class="pull-left top-20 ">{{user.displayName}}</span>
         <img [src]="user.photoURL" class="pull-right circle"> 
      </div>

@@ -13,6 +13,7 @@ import { UsersService } from './users/users.service';
 import { MessageServiceService } from './messages/message-service.service';
 import { UsersComponent } from './users/users.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MomentModule } from 'angular2-moment';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent }
@@ -28,6 +29,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MomentModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(routes)
   ],

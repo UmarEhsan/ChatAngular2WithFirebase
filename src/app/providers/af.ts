@@ -20,17 +20,19 @@ export class AF {
    */
   login()
  {
-      debugger
-       let user;
+      let user;
       let provider = new firebase.auth.FacebookAuthProvider();
       provider.addScope('user_birthday');
       return firebase.auth().signInWithPopup(provider)
-  
-  }
+}
 
   logout() {
     this.af.authState.subscribe(_user => {
-    this.users.update(_user.uid, {is_active : false});
+    let updateUserStatus = {
+      is_active : false,
+      last_seen : new Date()
+    }  
+    this.users.update(_user.uid, updateUserStatus);
   })
     this.af.auth.signOut();
     console.log(this.af);

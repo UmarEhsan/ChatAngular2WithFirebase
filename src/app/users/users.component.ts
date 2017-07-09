@@ -16,9 +16,14 @@ export class UsersComponent implements OnInit {
     this.currentUser = _user;
   })
 }
-isOfflineOrOnline(isActive)
+isOfflineOrOnline(isActive, forOnlineAndOffline)
 {
-  return isActive === "Online" || "Offline";
+  if(forOnlineAndOffline)
+  {
+  return isActive && "Online" || "Offline";
+  }
+
+  return isActive;
 }
 
 
